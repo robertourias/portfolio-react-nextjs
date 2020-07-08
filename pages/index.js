@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { Component } from "react";
 import Layout from '../components/Layout';
+import "isomorphic-fetch";
 
-const Index = () => {
-  return (
+export default class Home extends Component {
+  static getInitialProps = async () => {
+    const response = await fetch(
+      "https://api.github.com/orgs/rocketseat/repos"
+    );
+
+    return { repositories: await response.json() };
+  };
+
+  render() {
+    return (
     <Layout>
-      <h1>Home</h1>
-
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic eaque explicabo inventore cum totam? Eligendi iure a odit, fugit reiciendis natus voluptate dolorum aliquid vel veniam quos, cupiditate, aperiam dignissimos?</p>
-    </Layout>
-  );
-};
-
-export default Index;
+        {this.props.repositories.map(repo => (
+          <h1 key={repo.id}>{repo.name}</h1>
+        ))}
+      </Layout>
+    );
+  }
+}
