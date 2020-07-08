@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-react-nextjs",
+  "version": "1.0.0",
+  "description": "Projeto de estudo do nextjs",
+  "main": "index.js",
+  "repository": "https://github.com/robertourias/portfolio-react-nextjs.git",
+  "author": "Roberto Nicoletti <roberto.urias@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "dev": "next"
+  }
+}
